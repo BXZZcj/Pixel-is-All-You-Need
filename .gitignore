@@ -6,3 +6,21 @@ third_party/
 *.safetensors
 *.pt
 .DS_Store
+
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Generated outputs and checkpoints
+outputs/
+checkpoints/
+*.pth
+*.ckpt
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+*.egg-info/

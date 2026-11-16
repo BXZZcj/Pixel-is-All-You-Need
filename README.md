@@ -1,6 +1,9 @@
 # Pixel is All You Need
 
-Code for the paper *Pixel is All You Need*.
+Code accompanying the manuscript *Pixel is All You Need*, submitted to CVPR 2027.
+
+This repository contains the generator benchmark, pixel-space models, reproduction scripts, and CPU tests.
+Model checkpoints and experiment outputs are not included.
 
 The repository has two parts that follow the paper:
 
@@ -12,13 +15,18 @@ The repository has two parts that follow the paper:
 ## Setup
 
 ```bash
-pip install -r requirements.txt          # pixel models: torch, numpy, pillow
-pip install -r requirements-benchmark.txt  # Sec. 3 only: diffusers, transformers, ...
-python -m unittest discover tests        # CPU checks of the tasks, the reader and the LoRA
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt safetensors  # pixel models and CPU tests
+python -m unittest discover tests
+
+# Optional: dependencies for the generator benchmark (Sec. 3)
+pip install -r requirements-benchmark.txt
 ```
 
-The fonts in `assets/` (Liberation, SIL Open Font License) are used to draw every canvas. Pillow's basic text layout
-is pinned in the code, so canvases are pixel-identical across machines.
+The bundled Liberation 1.07.4 fonts in `assets/` are used to draw every canvas. Their original license texts
+and attribution are included in that directory. Pillow's basic text layout is pinned in the code, so canvases are
+pixel-identical across machines.
 
 ## Pixel-space models (Secs. 4 to 7)
 
@@ -33,7 +41,7 @@ read back from the canvas by nearest-glyph matching, with no judge model (`pixel
 | `text_tasks.py` | Expressions, Multiplication, Word Problems, Factual Questions; their single-GPU trainer |
 | `draw_tasks.py` | Curve Tracing, Trace Then Sum, Count Then Paint, Compute Then Paint; their trainer |
 | `maze_tasks.py` | Mazes and Sum Mazes |
-| `train_text.py` | Multi-GPU trainer of the text tasks (text scaling ladder, 160k-step runs), per-step metrics |
+| `train_text.py` | Multi-GPU trainer of the text tasks, including the scaling ladder; per-step metrics |
 | `train_joint.py` | Several tasks in one model (cross-modal scaling ladder, Sum Mazes), per-step metrics |
 | `rl_text.py` | GRPO on frame-by-frame rollouts (Sec. 7, text tasks) |
 | `rl_draw.py` | RFT and the SFT controls (Sec. 7, cross-modal tasks) |
@@ -122,9 +130,20 @@ answer visibility: Copy, Instruction, Context, Visual, Arithmetic and Factual (`
 | BAGEL fine-tuning (Sec. 3.4) | `bagel_train.py`, `bagel_cards.py`, `bagel_replay.py`, `replay_prompts.py`, `bagel_bench.py` |
 | Judging and scores | `cases.py`, `judge/run_text.py`, `judge_summary.py` |
 
-Model weights are not included. Set `UMM_MODEL_DIR` to the directory holding them and `UMM_SRC_DIR` to the upstream
-source trees that are not pip packages (see `generator_benchmark/paths.py` for the expected sub-directory names).
-API endpoints are read from environment variables and have no defaults:
+Set `UMM_MODEL_DIR` to the directory holding model weights and `UMM_SRC_DIR` to the upstream source trees that
+are not pip packages. Defaults are `models/` and `third_party/`; inspect the selected adapter for its expected
+sub-directory names.
+
+API endpoints and credentials are read from environment variables and have no defaults. Copy `.env.example` to
+`.env`, fill in the values for the adapters you use, and export them before running a command:
+
+```bash
+set -a
+source .env
+set +a
+```
+
+The local `.env` file is ignored by Git. The supported variables are:
 
 | Variable | Used for |
 |---|---|
@@ -135,14 +154,10 @@ API endpoints are read from environment variables and have no defaults:
 
 ## Citation
 
-```bibtex
-@inproceedings{pixel2027,
-  title     = {Pixel is All You Need},
-  booktitle = {CVPR},
-  year      = {2027}
-}
-```
+Bibliographic details will be added when the manuscript is publicly available.
 
 ## License
 
-The code is released under the MIT License (`LICENSE`). The fonts in `assets/` are under the SIL Open Font License.
+The code is released under the MIT License (`LICENSE`). The bundled Liberation 1.07.4 fonts have a separate
+GNU GPL version 2 license with the Liberation font exceptions; see `assets/README.md`, `assets/License.txt`,
+and `assets/COPYING`.
