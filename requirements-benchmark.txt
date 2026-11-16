@@ -1,0 +1,10 @@
+# generator_benchmark (Sec. 3), in addition to requirements.txt.
+# Some generators (BAGEL, Emu3.5, SenseNova, Wan, OmniWeaving, Cosmos3) run in their own upstream environments; see
+# generator_benchmark/paths.py and the module docstrings.
+diffusers>=0.35
+transformers>=4.51
+accelerate
+safetensors
+openai
+pyyaml
+imageio
