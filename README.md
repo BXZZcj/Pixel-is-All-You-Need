@@ -8,6 +8,7 @@
 
 <sup>1</sup>Shanghai Jiao Tong University &nbsp;&nbsp; <sup>2</sup>Shanghai Innovation Institute
 
+<a href="https://bxzzcj.github.io/pixel-is-all-you-need"><img src="https://img.shields.io/badge/Homepage-pixel--is--all--you--need-3E5C86?logo=googlechrome&logoColor=white" alt="Homepage"></a>
 <a href="#-citation"><img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2ea44f" alt="MIT License"></a>
 <img src="https://img.shields.io/badge/PyTorch-%E2%89%A52.1-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
@@ -76,7 +77,7 @@ compute reaches at most 39.0%.
 ## 🛠 Installation
 
 ```bash
-git clone https://github.com/BXZZcj/pixel-is-all-you-need.git
+git clone https://github.com/bxzzcj/pixel-is-all-you-need.git
 cd pixel-is-all-you-need
 python -m venv .venv && source .venv/bin/activate
 
