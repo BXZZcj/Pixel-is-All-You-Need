@@ -9,7 +9,7 @@
 <sup>1</sup>Shanghai Jiao Tong University &nbsp;&nbsp; <sup>2</sup>Shanghai Innovation Institute
 
 <a href="https://bxzzcj.github.io/pixel-is-all-you-need"><img src="https://img.shields.io/badge/Homepage-pixel--is--all--you--need-3E5C86?logo=googlechrome&logoColor=white" alt="Homepage"></a>
-<a href="#-citation"><img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
+<a href="https://arxiv.org/abs/2611.22820"><img src="https://img.shields.io/badge/arXiv-2611.22820-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2ea44f" alt="MIT License"></a>
 <img src="https://img.shields.io/badge/PyTorch-%E2%89%A52.1-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
 
@@ -290,11 +290,14 @@ If you find this work useful, please cite:
 @article{chu2026pixel,
   title  = {Pixel is All You Need},
   author = {Chu, Jie and Shi, Haoting and Zhang, Fucheng and Liu, Jiawei and Liao, Junwei and Wen, Ying and Wen, Muning},
-  year   = {2026}
+  journal = {arXiv preprint arXiv:2611.22820},
+  year   = {2026},
+  eprint = {2611.22820},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV},
+  url = {https://arxiv.org/abs/2611.22820}
 }
 ```
-
-<sub>The arXiv identifier will be added once the paper is public.</sub>
 
 ## 📄 License
 
