@@ -1,6 +1,6 @@
 <div align="center">
 
-# Pixel is All You Need
+# Pixel is All You Need <img src="docs/title-doge.png" width="32" height="32" alt="狗头">
 
 ### Multimodal reasoning in pure pixel space, without text tokens
 
